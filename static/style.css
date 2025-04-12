@@ -1,3 +1,12 @@
+/* === ADDED: Root Font Size === */
+html {
+  font-size: 16px; /* Default root font size */
+  box-sizing: border-box; /* Better box model */
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 /* === ADDED: Custom Font Definition === */
 @font-face {
     font-family: 'CrazyKiller'; /* Give your font a name */
@@ -15,6 +24,8 @@ body {
     padding: 0;
     line-height: 1.6;
     overflow-x: hidden; /* Prevent horizontal scrollbar */
+    /* Use rem for base font size if needed, though often inherited */
+    font-size: 1rem; /* 16px by default */
 }
 
 /* === ADDED: Background Scroller Styles === */
@@ -40,19 +51,18 @@ body {
     flex-direction: column;
     align-items: center;
     /* Adjust width for 7 columns (100/7 ≈ 14.28). Use slightly more for overlap. */
-    width: 15%; /* Was 21% for 5 columns */
+    width: 15%; /* Keep percentage */
     flex-shrink: 0;
 }
 
 /* Adjust image size */
 .scroll-column img {
-    width: 90%; /* Keep relative width within the narrower column */
-    /* Decrease max-width as columns are narrower */
-    max-width: 13vw; /* Was 15vw */
+    width: 90%;
+    max-width: 13vw; /* Keep vw for responsiveness */
     height: auto;
-    margin-bottom: 40px;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.5rem; /* 40px / 16 */
+    border-radius: 0.25rem; /* 4px / 16 */
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1); /* 0 2px 5px */
 }
 
 /* Animation Definitions */
@@ -95,25 +105,41 @@ body {
 
 /* Container for Centering Content */
 .container {
-    /* Increase width further */
-    max-width: 1600px; /* Was 1400px */
-    margin: 30px auto; /* Reduced top/bottom margin */
-    padding: 25px; /* Slightly reduced padding */
+    /* Use max-width % or keep large pixel value */
+    max-width: 95%; /* Use percentage for better scaling */
+    /* max-width: 1600px; */ /* Or keep fixed max if preferred */
+    margin: 1.875rem auto; /* 30px / 16 */
+    padding: 1.5rem; /* 25px / 16 (approx) */
     background-color: rgba(245, 245, 245, 0.95);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem; /* 8px / 16 */
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1); /* 0 4px 15px (approx) */
     text-align: center;
     position: relative;
     z-index: 1;
 }
 
+/* === ADDED: Contract Address Style === */
+.contract-address {
+    font-family: 'CrazyKiller', sans-serif;
+    font-size: 0.85rem; /* Small font size */
+    color: #666; /* Grey color */
+    text-align: center;
+    margin-bottom: 0.5rem; /* Space below CA */
+    margin-top: -0.5rem; /* Pull it up slightly */
+    padding: 0;
+    line-height: 1.2; /* Tighten line height */
+    /* Optional: Make it selectable */
+    user-select: all;
+}
+/* === END: Contract Address Style === */
+
 /* === UPDATED: Three Column Layout === */
 .content-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 30px; /* Slightly increased gap */
+    gap: 1.875rem; /* 30px / 16 */
     text-align: left;
-    margin-top: 15px; /* Reduced margin */
+    margin-top: 1rem; /* 15px / 16 (approx) */
     align-items: flex-start;
 }
 
@@ -137,7 +163,7 @@ body {
     flex-direction: column;
     align-items: center;
     /* Adjust min-height if needed, but let content dictate more */
-    min-height: 350px; /* Reduced slightly */
+    min-height: 22rem; /* Reduced slightly */
     justify-content: center;
 }
 
@@ -159,7 +185,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px; /* Reduced space below form */
+    margin-bottom: 1.25rem; /* Reduced space below form */
 }
 
 /* Apply CrazyKiller Font to Labels */
@@ -173,18 +199,18 @@ label {
 
 /* Restyle Textarea */
 textarea {
-    width: 95%; /* Slightly wider */
-    padding: 10px; /* Reduced padding */
-    margin-bottom: 15px;
+    width: 95%;
+    padding: 0.625rem; /* 10px / 16 */
+    margin-bottom: 1rem; /* 15px / 16 (approx) */
     border: 2px solid #555;
     border-radius: 0;
     /* Change background to slightly transparent white */
     background-color: rgba(255, 255, 255, 0.9); /* Was #fff */
     color: #333;
-    font-size: 1em; /* Slightly smaller textarea font */
+    font-size: 1rem; /* Was 1em (18px?) -> 1rem (16px) */
     font-family: 'CrazyKiller', sans-serif;
     flex-grow: 1;
-    min-height: 140px; /* Adjust based on rows */
+    min-height: 8.75rem; /* 140px / 16 */
 }
 
 textarea::placeholder {
@@ -199,9 +225,9 @@ textarea::placeholder {
     display: flex;
     /* Change from space-evenly to center */
     justify-content: center;
-    gap: 30px; /* Add gap between the centered toggles */
+    gap: 1.875rem; /* 30px / 16 */
     width: 95%;
-    margin-bottom: 15px;
+    margin-bottom: 1rem; /* 15px / 16 */
     align-items: center;
 }
 
@@ -212,7 +238,7 @@ textarea::placeholder {
 }
 
 .toggle-label {
-    font-size: 1em; /* Slightly larger */
+    font-size: 0.9rem; /* Slightly smaller toggle label */
     color: #333;
     /* Apply font */
     font-family: 'CrazyKiller', sans-serif;
@@ -224,8 +250,8 @@ textarea::placeholder {
 .switch {
   position: relative;
   display: inline-block;
-  width: 22px;  /* Size of the box */
-  height: 22px; /* Size of the box */
+  width: 1.375rem;  /* Size of the box */
+  height: 1.375rem; /* Size of the box */
   cursor: pointer;
 }
 
@@ -255,10 +281,10 @@ textarea::placeholder {
   position: absolute;
   content: "";
   /* Style a checkmark or fill */
-  height: 10px;
-  width: 10px;
-  left: 4px;
-  top: 4px;
+  height: 0.625rem;
+  width: 0.625rem;
+  left: 0.25rem;
+  top: 0.25rem;
   background-color: #555; /* Color of the check/fill */
   opacity: 0; /* Hidden by default */
   transition: opacity 0.3s ease;
@@ -282,7 +308,7 @@ input:checked + .slider:before {
 button,
 .share-button,
 .community-link-button {
-    padding: 8px 18px; /* Smaller button padding */
+    padding: 0.5rem 1.125rem; /* 8px / 16, 18px / 16 */
     /* Remove default blue/black background */
     background-color: transparent;
     /* Add border */
@@ -291,7 +317,7 @@ button,
     /* Set text color */
     color: #333;
     cursor: pointer;
-    font-size: 1em; /* Smaller font size */
+    font-size: 1rem; /* Was 1em/1.1em -> 1rem */
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
     /* Apply font! */
     font-family: 'CrazyKiller', sans-serif;
@@ -299,7 +325,7 @@ button,
     display: inline-block; /* For link buttons */
     font-weight: normal; /* Remove browser default bolding if any */
     text-transform: uppercase; /* Optional: Uppercase text might fit */
-    margin-top: 0; /* Remove top margin */
+    margin-top: 0.625rem; /* 10px / 16 */
 }
 
 button:hover,
@@ -318,13 +344,13 @@ h1 {
     font-family: 'CrazyKiller', sans-serif; /* Add fallback */
     /* Darker heading for white background */
     color: #222;
-    margin-bottom: 15px;
+    margin-bottom: 1.25rem; /* Was 3.2em -> 3rem approx */
 }
 
 h2 {
-    font-size: 1.8em; /* Slightly larger H2 again */
-    margin-top: 15px;
-    margin-bottom: 10px;
+    font-size: 1.5rem; /* Slightly larger H2 again */
+    margin-top: 1rem;
+    margin-bottom: 0.625rem; /* Was 1.6em/1.4em -> 1.5rem */
     /* Ensure H2 also uses the font explicitly */
      font-family: 'CrazyKiller', sans-serif;
 }
@@ -344,9 +370,9 @@ p {
 }
 
 .result h2 {
-    font-size: 1.6em; /* Keep H2 size consistent */
+    font-size: 1.5rem; /* Keep H2 size consistent */
     margin-top: 0; /* Remove top margin if result is first */
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem; /* 8px / 16 */
 }
 
 .result img {
