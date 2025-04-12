@@ -92,8 +92,6 @@ def generate():
     """Handles the image generation request via Glif API."""
     original_prompt = request.form.get('prompt', '')
     portrait_mode = request.form.get('portrait_mode') == 'on'
-
-    # --- Initialize variable for center message ---
     center_message = None
 
     if not original_prompt:
@@ -107,24 +105,32 @@ def generate():
                                 center_message=center_message, # Pass center message
                                 TARGET_GLIF_ID=TARGET_GLIF_ID)
 
-    modified_prompt = original_prompt
+    # --- Modify prompt: Prepend "retarded", then handle portrait mode ---
+    # Start with the core keyword
+    modified_prompt = "retarded"
+
+    # Add the user's original prompt after it
+    if original_prompt: # Make sure user actually entered something
+        modified_prompt += f" {original_prompt}"
+
+    # Then prepend "portrait of " if the toggle is on
     if portrait_mode:
         modified_prompt = f"portrait of {modified_prompt}"
+    # --- END Prompt Modification ---
 
     try:
         start_time = time.time()
         glif_result = run_glif(modified_prompt)
         end_time = time.time()
         logging.info(f"Glif API call took {end_time - start_time:.2f} seconds.")
-        logging.info(f"Original Prompt: '{original_prompt}', Modified Prompt: '{modified_prompt}'")
+        logging.info(f"Final Prompt Sent: '{modified_prompt}' (Original: '{original_prompt}')")
 
         if "error" in glif_result:
              logging.error(f"Glif API Error Detail: {glif_result['error']}")
-             # --- Set custom message for center column ---
              center_message = "i can't do that – try again, retard"
              return render_template('index.html',
-                                    center_message=center_message, # <-- Pass center message
-                                    prompt_used=original_prompt, # Still pass prompt for context if needed elsewhere
+                                    center_message=center_message,
+                                    prompt_used=original_prompt, # Keep showing original prompt to user
                                     TARGET_GLIF_ID=TARGET_GLIF_ID)
         else:
             image_url = glif_result.get("output")
