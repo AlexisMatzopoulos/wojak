@@ -107,7 +107,7 @@ def generate():
 
     # --- Modify prompt: Prepend "retarded", then handle portrait mode ---
     # Start with the core keyword
-    modified_prompt = "retarded"
+    modified_prompt = "A low IQ person, drooling from his mouth, who is... "
 
     # Add the user's original prompt after it
     if original_prompt: # Make sure user actually entered something
