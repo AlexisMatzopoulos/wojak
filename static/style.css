@@ -1,0 +1,764 @@
+/* === ADDED: Custom Font Definition === */
+@font-face {
+    font-family: 'CrazyKiller'; /* Give your font a name */
+    src: url('crazy_killer/CRAZY.TTF') format('truetype'); /* Path relative to the static folder */
+    /* You might add font-weight and font-style if you have different versions */
+}
+
+/* === Global Styles === */
+body {
+    /* Ensure CrazyKiller is the primary font */
+    font-family: 'CrazyKiller', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+/* === ADDED: Background Scroller Styles === */
+.background-scroller {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around; /* Distribute columns */
+    z-index: -1; /* Place behind content */
+    overflow: hidden; /* Hide parts of images outside the columns */
+    /* Adjust opacity for white background */
+    /* Make slightly less intense (more visible) */
+    opacity: 0.2; /* Was 0.15 */
+    /* Remove blur or adjust as needed */
+    /* filter: blur(1px); */
+}
+
+.scroll-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Adjust width for 7 columns (100/7 ≈ 14.28). Use slightly more for overlap. */
+    width: 15%; /* Was 21% for 5 columns */
+    flex-shrink: 0;
+}
+
+/* Adjust image size */
+.scroll-column img {
+    width: 90%; /* Keep relative width within the narrower column */
+    /* Decrease max-width as columns are narrower */
+    max-width: 13vw; /* Was 15vw */
+    height: auto;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Definitions */
+/* Remove or comment out keyframes */
+/*
+@keyframes scroll-up-infinite {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}
+
+@keyframes scroll-down-infinite {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+*/
+
+/* Apply Animations to Columns - REMOVE/COMMENT OUT animation properties */
+.column-1 {
+    /* animation: scroll-up-infinite 30s linear infinite; */
+}
+
+.column-2 {
+    /* animation: scroll-down-infinite 40s linear infinite; */
+}
+
+.column-3 {
+     /* animation: scroll-up-infinite 36s linear infinite; */
+}
+
+.column-4 {
+     /* animation: scroll-down-infinite 46s linear infinite; */
+}
+
+.column-5 {
+     /* animation: scroll-up-infinite 28s linear infinite; */
+}
+
+/* === End Background Scroller Styles === */
+
+
+/* Container for Centering Content */
+.container {
+    /* Increase width further */
+    max-width: 1600px; /* Was 1400px */
+    margin: 30px auto; /* Reduced top/bottom margin */
+    padding: 25px; /* Slightly reduced padding */
+    background-color: rgba(245, 245, 245, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* === UPDATED: Three Column Layout === */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; /* Slightly increased gap */
+    text-align: left;
+    margin-top: 15px; /* Reduced margin */
+    align-items: flex-start;
+}
+
+.form-column {
+    /* Adjust flex-basis */
+    flex-basis: 25%; /* Was 28% */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align top */
+    height: 100%;
+}
+
+.result-column {
+    /* Adjust flex-basis */
+    flex-basis: 50%; /* Was 44%, give more space to image */
+    flex-shrink: 1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Adjust min-height if needed, but let content dictate more */
+    min-height: 350px; /* Reduced slightly */
+    justify-content: center;
+}
+
+.community-column {
+    /* Adjust flex-basis */
+    flex-basis: 25%; /* Was 28% */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align top */
+}
+/* END: Three Column Layout Styles */
+
+
+/* Adjust Form elements */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Reduced space below form */
+}
+
+/* Apply CrazyKiller Font to Labels */
+label {
+    font-family: 'CrazyKiller', sans-serif;
+    margin-bottom: 8px;
+    font-weight: bold; /* Keep bold */
+    color: #444;
+    font-size: 1.1em; /* Slightly larger label */
+}
+
+/* Restyle Textarea */
+textarea {
+    width: 95%; /* Slightly wider */
+    padding: 10px; /* Reduced padding */
+    margin-bottom: 15px;
+    border: 2px solid #555;
+    border-radius: 0;
+    /* Change background to slightly transparent white */
+    background-color: rgba(255, 255, 255, 0.9); /* Was #fff */
+    color: #333;
+    font-size: 1em; /* Slightly smaller textarea font */
+    font-family: 'CrazyKiller', sans-serif;
+    flex-grow: 1;
+    min-height: 140px; /* Adjust based on rows */
+}
+
+textarea::placeholder {
+    color: #999;
+    /* Apply font to placeholder */
+    font-family: 'CrazyKiller', sans-serif;
+    opacity: 0.8; /* Make placeholder slightly lighter */
+}
+
+/* Adjust Toggle Container Alignment */
+.toggle-container {
+    display: flex;
+    /* Change from space-evenly to center */
+    justify-content: center;
+    gap: 30px; /* Add gap between the centered toggles */
+    width: 95%;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.toggle-option {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Reduced gap */
+}
+
+.toggle-label {
+    font-size: 1em; /* Slightly larger */
+    color: #333;
+    /* Apply font */
+    font-family: 'CrazyKiller', sans-serif;
+    /* Prevent text selection on label */
+    user-select: none;
+}
+
+/* The switch - container for the checkbox */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 22px;  /* Size of the box */
+  height: 22px; /* Size of the box */
+  cursor: pointer;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+/* The visual representation (the box) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff; /* White box */
+  border: 2px solid #888; /* Grey border */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Simple checkmark using :before (optional) */
+.slider:before {
+  position: absolute;
+  content: "";
+  /* Style a checkmark or fill */
+  height: 10px;
+  width: 10px;
+  left: 4px;
+  top: 4px;
+  background-color: #555; /* Color of the check/fill */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+/* When checkbox is checked, change box border and show checkmark */
+input:checked + .slider {
+  border-color: #333; /* Darker border when checked */
+}
+input:checked + .slider:before {
+   opacity: 1; /* Show checkmark */
+}
+
+/* Remove rounding */
+.slider.round { border-radius: 0; }
+.slider.round:before { border-radius: 0; }
+
+/* === END: Toggle Switch Styles === */
+
+/* === UPDATED: Button Styles (All Buttons) === */
+button,
+.share-button,
+.community-link-button {
+    padding: 8px 18px; /* Smaller button padding */
+    /* Remove default blue/black background */
+    background-color: transparent;
+    /* Add border */
+    border: 2px solid #333;
+    border-radius: 0; /* No rounded corners */
+    /* Set text color */
+    color: #333;
+    cursor: pointer;
+    font-size: 1em; /* Smaller font size */
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    /* Apply font! */
+    font-family: 'CrazyKiller', sans-serif;
+    text-decoration: none; /* For link buttons */
+    display: inline-block; /* For link buttons */
+    font-weight: normal; /* Remove browser default bolding if any */
+    text-transform: uppercase; /* Optional: Uppercase text might fit */
+    margin-top: 0; /* Remove top margin */
+}
+
+button:hover,
+.share-button:hover,
+.community-link-button:hover {
+    /* Invert colors on hover */
+    background-color: #333;
+    color: #fff;
+    /* Optional: slight scale effect */
+    /* transform: scale(1.03); */
+}
+/* === END: Button Styles === */
+
+h1 {
+    /* Ensure H1 uses the font */
+    font-family: 'CrazyKiller', sans-serif; /* Add fallback */
+    /* Darker heading for white background */
+    color: #222;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.8em; /* Slightly larger H2 again */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    /* Ensure H2 also uses the font explicitly */
+     font-family: 'CrazyKiller', sans-serif;
+}
+
+p {
+    /* Darker paragraph text */
+    color: #555;
+    font-size: 0.9em;
+    /* Ensure paragraphs use the font */
+    font-family: 'CrazyKiller', sans-serif;
+}
+
+/* Result Image Styling */
+.result {
+    width: 100%;
+    text-align: center;
+}
+
+.result h2 {
+    font-size: 1.6em; /* Keep H2 size consistent */
+    margin-top: 0; /* Remove top margin if result is first */
+    margin-bottom: 8px;
+}
+
+.result img {
+    max-width: 100%;
+    /* Adjust max-height based on central column feel */
+    max-height: 60vh;
+    object-fit: contain;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid #444;
+}
+
+.result p {
+    font-size: 0.9em; /* Smaller prompt text */
+    margin-top: 8px;
+}
+
+.result p strong {
+    /* CHANGE: Make 'Prompt Used:' label black */
+    color: #333; /* Was #ffffff */
+    /* ADDED: Slightly larger font for the label */
+    font-size: 1.1em;
+}
+
+/* === UPDATED: Placeholder Style === */
+.result-placeholder {
+    margin-top: 20px; /* Adjusted margin */
+    padding: 30px; /* Increased padding */
+    /* Solid border */
+    border: 2px solid #aaa;
+    border-radius: 0; /* No rounding */
+    color: #888;
+    text-align: center;
+    width: 90%; /* Adjusted width */
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.result-placeholder p {
+    /* Ensure placeholder text uses the font */
+    font-family: 'CrazyKiller', sans-serif;
+    font-size: 1.2em;
+}
+/* === END: Placeholder Style === */
+
+/* Community Section Styles */
+.community-section {
+    margin-top: 0;
+    padding-top: 10px; /* Add some padding at the top */
+    border-top: none;
+    width: 100%; /* Use full width of its column */
+    text-align: center;
+    display: flex; /* Enable flex for vertical alignment */
+    flex-direction: column;
+    align-items: center;
+}
+.community-section h2 {
+     margin-bottom: 10px; /* Reduced space */
+     font-size: 1.4em; /* Reduced size */
+     font-family: 'CrazyKiller', sans-serif; /* Apply font */
+}
+.community-section p {
+    font-size: 1em; /* Reduced size */
+    color: #555;
+    margin-bottom: 15px; /* Reduced space */
+    padding: 0 10px;
+    font-family: 'CrazyKiller', sans-serif; /* Apply font */
+}
+.community-link-button {
+ /* Styles merged into the main button block above */
+}
+/* === END: Community Section Styles === */
+
+/* Share Button Styles */
+.share-buttons {
+    margin-top: 15px; /* Reduced space */
+    display: flex; /* Make buttons sit side-by-side */
+    justify-content: center; /* Center the buttons */
+    gap: 15px; /* Space between buttons */
+}
+.share-button {
+    /* Apply same smaller padding as other buttons */
+     padding: 8px 18px;
+     font-size: 1em; /* Smaller font */
+     /* Existing shared styles from main button block apply */
+}
+
+/* Optional: Specific styling for Download button */
+.download-button {
+    /* Example: Different border color */
+    /* border-color: #4CAF50; */ /* Green */
+    /* color: #4CAF50; */
+}
+.download-button:hover {
+    /* Example: Different hover */
+    /* background-color: #4CAF50; */
+    /* color: white; */
+}
+
+/* Share Button below generated image */
+.share-button {
+    /* Styles merged into the main button block above */
+    /* Specific overrides if needed, e.g., for X button */
+}
+.share-button-x {
+     /* Keep specific background/color for X button *initial* state if desired */
+     /* background-color: #000; */ /* Or leave transparent */
+     /* color: #fff; */
+}
+.share-button-x:hover {
+    /* Standard hover defined above will apply (black bg, white text) */
+}
+/* === END: Share Button Styles === */
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px 0;
+    font-size: 0.85em;
+    /* Darker footer text */
+    color: #666;
+    position: relative; /* Keep footer above background */
+    z-index: 1;
+    /* Apply font to footer */
+    font-family: 'CrazyKiller', sans-serif;
+}
+
+footer a {
+    /* Adjust link color */
+    color: #0066cc;
+    text-decoration: none;
+    /* Apply font to footer links */
+     font-family: 'CrazyKiller', sans-serif;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Error Message Styling */
+.form-column .error {
+    margin-top: 15px; /* Reduced margin */
+    padding: 10px;   /* Reduced padding */
+    background-color: #ffebee;
+    border: 1px solid #ef9a9a;
+    color: #c62828;
+    border-radius: 4px;
+    width: 95%;
+    text-align: center;
+}
+
+.form-column .error p {
+    /* Apply font to error text */
+    font-size: 0.9em; /* Slightly smaller error text */
+    font-family: 'CrazyKiller', sans-serif;
+}
+
+/* Disabled Toggle Style */
+.switch.disabled {
+    cursor: not-allowed;
+}
+.switch.disabled .slider {
+    background-color: #e0e0e0; /* Lighter grey background */
+    border-color: #bbb; /* Lighter border */
+    cursor: not-allowed;
+}
+.switch.disabled input:checked + .slider:before {
+    opacity: 0.5; /* Dim checkmark if shown */
+}
+.toggle-label.disabled-label {
+    color: #999; /* Grey out text */
+    cursor: not-allowed;
+}
+
+/* === UPDATED: Pro Version Section Styles === */
+.pro-version-section {
+    margin-top: 25px; /* Reduced space */
+    padding: 15px; /* Reduced padding */
+    border: 2px solid #444; /* Back to solid? Or keep dashed */
+    background-color: rgba(220, 220, 220, 0.6);
+    width: 95%; /* Match other elements */
+    text-align: center;
+    box-shadow: 2px 2px 0px 0px #888;
+}
+
+.pro-version-section h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.4em; /* Reduced size */
+    font-family: 'CrazyKiller', sans-serif;
+}
+
+.pro-subtitle {
+    font-size: 1em; /* Reduced size */
+    color: #666;
+    margin-bottom: 10px; /* Reduced space */
+    font-family: 'CrazyKiller', sans-serif;
+}
+
+.pro-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0; /* Reduced space */
+    text-align: left;
+    display: inline-block;
+}
+
+.pro-features li {
+    margin-bottom: 6px; /* Reduced space */
+    font-size: 0.9em; /* Reduced size */
+    font-family: 'CrazyKiller', sans-serif;
+    color: #444;
+}
+
+.pro-features li i {
+    margin-right: 8px; /* Space after icon */
+    color: #555; /* Icon color */
+}
+
+.pro-coming-soon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+/* === END: Pro Version Section Styles === */
+
+/* === ADDED: Social Links Container & Button Styles === */
+.social-links {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Reduced space */
+    margin-top: 5px; /* Reduced space */
+    align-items: center; /* Center buttons */
+    width: 100%; /* Take full width */
+}
+
+.social-link-button {
+    padding: 8px 18px; /* Smaller buttons */
+    border: 2px solid #333;
+    border-radius: 0;
+    color: #333;
+    cursor: pointer;
+    font-size: 1em; /* Smaller font */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-family: 'CrazyKiller', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: normal;
+    text-transform: uppercase;
+    width: 90%; /* Wider buttons */
+    max-width: 250px; /* Optional max width */
+    text-align: center;
+}
+
+.social-link-button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Optional: Specific button colors (can override hover slightly) */
+.social-link-button.twitter-button { border-color: #1DA1F2; color: #1DA1F2; }
+.social-link-button.twitter-button:hover { background-color: #1DA1F2; color: #fff; }
+
+.social-link-button.community-button { border-color: #555; color: #555; }
+.social-link-button.community-button:hover { background-color: #555; color: #fff; }
+
+.social-link-button.pumpfun-button { border-color: #FF6B6B; color: #FF6B6B; } /* Example pump.fun color */
+.social-link-button.pumpfun-button:hover { background-color: #FF6B6B; color: #fff; }
+/* === END: Social Links Styles === */
+
+/* Restyle Main Title */
+h1.main-title {
+    font-size: 3.2em; /* Slightly reduced */
+    margin-bottom: 20px; /* Reduced space below */
+    color: #222;
+    font-family: 'CrazyKiller', sans-serif;
+}
+
+/* Common styles for generated and placeholder images */
+.generated-image,
+.placeholder-image {
+    max-width: 100%;
+    /* Adjust max-height if needed, more width helps */
+    max-height: 60vh;
+    object-fit: contain;
+    height: auto;
+    border-radius: 0px;
+    margin-top: 5px; /* Reduced margin */
+    border: 2px solid #555;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Placeholder specific styles */
+.placeholder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* Reduced min-height */
+    min-height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.placeholder-image {
+     /* Use common styles above */
+     /* Add specific opacity if desired */
+     opacity: 0.7;
+}
+
+.placeholder-text {
+    font-family: 'CrazyKiller', sans-serif;
+    font-size: 1.2em; /* Slightly smaller */
+    color: #888;
+    margin-top: 10px; /* Reduced margin */
+}
+
+/* === ADDED: Placeholder Error Message Style === */
+.placeholder-error-message {
+    font-family: 'CrazyKiller', sans-serif;
+    font-size: 1.5em; /* Larger than normal placeholder */
+    color: #D32F2F; /* A noticeable red color */
+    margin-top: 15px;
+    font-weight: bold; /* Make it bolder */
+    text-transform: uppercase; /* Make it stand out more */
+    line-height: 1.3; /* Adjust line height if needed */
+    padding: 0 10px; /* Add padding if text wraps */
+}
+/* === END: Placeholder Error Message Style === */
+
+/* === ADDED: Loading Indicator Styles === */
+#loading-indicator {
+    display: flex; /* Hidden initially by inline style, use flex when shown */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 300px; /* Match reduced placeholder */
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#loading-indicator p {
+    font-family: 'CrazyKiller', sans-serif;
+    font-size: 1.6em; /* Slightly smaller */
+    color: #555;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Basic CSS Spinner */
+.loader-spinner {
+  border: 6px solid #f3f3f3; /* Light grey */
+  border-top: 6px solid #555; /* Dark grey */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* === END: Loading Indicator Styles === */
+
+/* === ADDED: To-Do List Styles === */
+.todo-list-section {
+    margin-top: 25px; /* Reduced space */
+    width: 95%;
+    padding: 10px; /* Reduced padding */
+    border: 2px dashed #ccc;
+}
+
+.todo-list-section h2 {
+    margin-bottom: 10px; /* Reduced space */
+    font-size: 1.4em; /* Reduced size */
+}
+
+.retard-todo {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    display: inline-block; /* Center the list block */
+}
+
+.retard-todo li {
+    margin-bottom: 8px; /* Reduced space */
+    font-size: 0.9em; /* Reduced size */
+    font-family: 'CrazyKiller', sans-serif;
+    color: #444;
+}
+
+.retard-todo li i { /* Checkmark style */
+    color: #888; /* Grey checkmark */
+    margin-left: 5px;
+}
+
+.retard-todo .strikethrough {
+    text-decoration: line-through;
+    color: #999; /* Lighter color for struck text */
+    padding-right: 3px; /* Space before checkmark */
+}
+/* === END: To-Do List Styles === */

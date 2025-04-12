@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wojak Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- === ADDED: Background Scroller === -->
+    <div class="background-scroller" aria-hidden="true">
+        <!-- Column 1 (Scrolls Up) -->
+        <div class="scroll-column column-1">
+            <!-- Use images 1-6, varied (Set 1) -->
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <!-- Repeat the set again for seamless loop (Set 2) -->
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+        </div>
+
+        <!-- Column 2 (Scrolls Down) -->
+        <div class="scroll-column column-2">
+             <!-- Use images 1-6, varied (Set 1) -->
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+             <!-- Repeat the set again for seamless loop (Set 2) -->
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+        </div>
+
+        <!-- Column 3 (Scrolls Up - Different speed/images) -->
+        <div class="scroll-column column-3">
+             <!-- Use images 1-6, varied (Set 1) -->
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+             <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+             <!-- Repeat the set again for seamless loop (Set 2) -->
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+             <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+        </div>
+
+        <!-- Column 4 (Scrolls Down) -->
+         <div class="scroll-column column-4">
+             <!-- Use images 1-6, varied (Set 1) -->
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+             <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+             <!-- Repeat the set again for seamless loop (Set 2) -->
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+             <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+        </div>
+
+        <!-- Column 5 (Scrolls Up) -->
+        <div class="scroll-column column-5">
+             <!-- Use images 1-6, varied (Set 1) -->
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+             <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+             <!-- Repeat the set again for seamless loop (Set 2) -->
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+             <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+        </div>
+
+        <!-- === ADDED: Column 6 (Scrolls Down) === -->
+        <div class="scroll-column column-6">
+             <!-- Use images 1-6, varied (Set 1) -->
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+             <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+             <!-- Repeat the set again for seamless loop (Set 2) -->
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+             <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+        </div>
+
+        <!-- === ADDED: Column 7 (Scrolls Up) === -->
+        <div class="scroll-column column-7">
+             <!-- Use images 1-6, varied (Set 1) -->
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+             <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+             <!-- Repeat the set again for seamless loop (Set 2) -->
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img2.jpg') }}" alt="">
+             <img src="{{ url_for('static', filename='background_images/img4.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img1.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img6.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img3.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='background_images/img5.jpg') }}" alt="">
+        </div>
+
+    </div>
+    <!-- === End Background Scroller === -->
+
+    <div class="container">
+        <h1 class="main-title">Retard Generator</h1>
+
+        {# === UPDATED: Three-Column Layout Wrapper === #}
+        <div class="content-wrapper">
+
+            {# === Left Column: Form === #}
+            <div class="form-column">
+                <form id="generate-form" action="{{ url_for('generate') }}" method="POST">
+                    <label for="prompt">create a retard below</label>
+                    <textarea id="prompt" name="prompt" rows="8" required placeholder="e.g., retard on computer, retard on toilet"></textarea>
+
+                    <div class="toggle-container">
+                        <div class="toggle-option">
+                            <label class="switch">
+                                <input type="checkbox" name="portrait_mode" value="on">
+                                <span class="slider round"></span>
+                            </label>
+                            <span class="toggle-label">Portrait Mode</span>
+                        </div>
+                        <div class="toggle-option">
+                             <label class="switch">
+                                <input type="checkbox" name="clown_mode" value="on">
+                                <span class="slider round"></span>
+                            </label>
+                            <span class="toggle-label">Clown Mode</span>
+                        </div>
+                    </div>
+
+                    <button type="submit">Generate</button>
+                </form>
+
+                {# === ADDED: Pro Version Section === #}
+                <div class="pro-version-section">
+                    <h2>Pro Version</h2>
+                    <p class="pro-subtitle">For Special Retards</p>
+                    <ul class="pro-features">
+                        {# Use Font Awesome icons instead of checkboxes #}
+                        <li><i class="fas fa-check"></i> Faster Generation</li>
+                        <li><i class="fas fa-check"></i> Access to Latest Models</li>
+                        <li><i class="fas fa-check"></i> Higher Resolution</li>
+                        <li><i class="fas fa-check"></i> No Watermark</li>
+                    </ul>
+                    <div class="pro-coming-soon">
+                        <label class="switch disabled">
+                            <input type="checkbox" disabled>
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="toggle-label disabled-label">Enable Pro (Coming Soon)</span>
+                    </div>
+                </div>
+                {# === END: Pro Version Section === #}
+
+            </div>{# === End Left Column === #}
+
+
+            {# === Center Column: Result === #}
+            <div class="result-column">
+
+                {# === ADDED: Loading Indicator (Initially Hidden) === #}
+                <div id="loading-indicator" style="display: none;">
+                    <p>GENERATING YOUR RETARD...</p>
+                    {# Add a simple spinner or themed element here if desired #}
+                    <div class="loader-spinner"></div>
+                </div>
+                {# === END: Loading Indicator === #}
+
+
+                {# === Result Area (Image or Placeholder/Error) === #}
+                <div id="result-area">
+                    {% if generated_image_url %}
+                        <div class="result">
+                            <h2>Generated Image:</h2>
+                            <img src="{{ generated_image_url }}" alt="Generated Wojak Image" class="generated-image">
+                            {# Removed Prompt Used display from here #}
+
+                            {# Share Button Logic #}
+                            {% set community_url = "https://x.com/i/communities/1911078568123412910" %}
+                            {# === UPDATED Tweet Text === #}
+                            {% set tweet_text = "look at the retard i generated (no not you) Join the community: " + community_url %}
+                            {% set hashtags = "WojakGenerator,MemeCoinProject" %}
+                            {% set share_url = "https://twitter.com/intent/tweet?text=" + tweet_text|urlencode + "&url=" + generated_image_url|urlencode + "&hashtags=" + hashtags %}
+
+                            <div class="share-buttons">
+                                <a href="{{ share_url }}" class="share-button share-button-x" target="_blank" rel="noopener noreferrer">
+                                    Share on X
+                                </a>
+                                {# === ADDED Download Button === #}
+                                <a href="{{ generated_image_url }}" class="share-button download-button" download="generated_retard.jpg">
+                                    Download
+                                </a>
+                                {# === END Download Button === #}
+                            </div>
+                        </div>
+                    {% else %}
+                         {# Placeholder / Error Container #}
+                         <div class="result placeholder-container">
+                             <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="Placeholder Image" class="placeholder-image">
+                             {# === ADDED Conditional Message Display === #}
+                             {% if center_message %}
+                                <p class="placeholder-error-message">{{ center_message }}</p> {# Display error #}
+                             {% else %}
+                                <p class="placeholder-text">Generated image will appear here.</p> {# Default text #}
+                             {% endif %}
+                             {# === END Conditional Message Display === #}
+                         </div>
+                    {% endif %}
+                </div> {# === END: Result Area === #}
+
+            </div>{# === End Center Column === #}
+
+
+            {# === Right Column: Community === #}
+            <div class="community-column">
+                 <div class="community-section">
+                    <h2>Join the Community</h2>
+                    <p>Share your creations and connect with others!</p>
+
+                    {# === ADDED: Social Links === #}
+                    <div class="social-links">
+                        <a href="https://x.com/YourTwitterHandle" class="social-link-button twitter-button" target="_blank" rel="noopener noreferrer">
+                             Follow on X
+                        </a>
+                        <a href="https://x.com/i/communities/1911078568123412910" class="social-link-button community-button" target="_blank" rel="noopener noreferrer">
+                            X Community
+                        </a>
+                        <a href="https://pump.fun/YourPumpFunLink" class="social-link-button pumpfun-button" target="_blank" rel="noopener noreferrer">
+                            Pump.fun
+                        </a>
+                    </div>
+                    {# === END: Social Links === #}
+
+                    {# Placeholder for potential future embed #}
+                    <!-- <div class="community-embed"> Community Feed Embed Here </div> -->
+
+                    {# === ADDED: Retard Trader To-Do List === #}
+                    <div class="todo-list-section">
+                        <h2>To Do:</h2>
+                        <ul class="retard-todo">
+                            <li><span class="strikethrough">Panic Sell Low</span> <i class="fas fa-check"></i></li>
+                            <li>Fomo Buy High</li>
+                            <li>Check Price Every 5 Secs</li>
+                            <li>Post "Wen Moon?"</li>
+                            <li>Blame Market Makers</li>
+                            <li><span class="strikethrough">Get Rugged</span> <i class="fas fa-check"></i></li>
+                            <li>Tell Everyone "Diamond Hands"</li>
+                            <li>Repeat</li>
+                        </ul>
+                    </div>
+                    {# === END: Retard Trader To-Do List === #}
+
+                </div>
+            </div>{# === End Right Column === #}
+
+
+        </div>{# === End Three-Column Layout Wrapper === #}
+
+    </div>
+     <!-- Remove Footer -->
+     <!-- <footer>
+        Powered by <a href="https://glif.app" target="_blank">glif.app</a>
+    </footer> -->
+
+    <!-- === ADDED: JavaScript for Infinite Scroll === -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const columns = document.querySelectorAll('.scroll-column');
+            if (!columns.length) return;
+
+            // --- Configuration ---
+            // Pixels per second scroll speed (positive for down, negative for up)
+            const speeds = {
+                'column-1': -85,  // Fast Up
+                'column-2': 72,   // Fast Down
+                'column-3': -95,  // Very Fast Up
+                'column-4': 65,   // Fast Down
+                'column-5': -78,  // Fast Up
+                'column-6': 90,   // Very Fast Down
+                'column-7': -68   // Fast Up
+            };
+            // ---------------------
+
+            let lastTimestamp = 0;
+            const columnData = [];
+
+            columns.forEach(col => {
+                const className = Array.from(col.classList).find(cls => cls.startsWith('column-'));
+                // Determine default direction based on odd/even - adjust if needed
+                const defaultSpeed = parseInt(className.replace('column-', ''), 10) % 2 !== 0 ? -50 : 50;
+                const speed = speeds[className] || defaultSpeed; // Use defined speed or default
+                const scrollUp = speed < 0;
+                // Delay calculating heights until the first animation frame to improve accuracy
+                // const scrollHeight = col.scrollHeight;
+                // const halfHeight = scrollHeight / 2;
+
+                // Initial position calculation moved to first frame
+                // const initialY = scrollUp ? 0 : -halfHeight;
+                // col.style.transform = `translateY(${initialY}px)`;
+
+                columnData.push({
+                    element: col,
+                    currentY: 0, // Will be set properly on first frame
+                    speed: speed,
+                    scrollUp: scrollUp,
+                    halfHeight: 0, // Will be calculated on first frame
+                    initialized: false // Flag to track first frame setup
+                });
+            });
+
+            function animateScroll(timestamp) {
+                // First frame setup moved here for better height calculation
+                if (!lastTimestamp) {
+                    lastTimestamp = timestamp;
+                    columnData.forEach(data => {
+                        if (!data.initialized) {
+                            const scrollHeight = data.element.scrollHeight;
+                            data.halfHeight = scrollHeight / 2;
+                            data.currentY = data.scrollUp ? 0 : -data.halfHeight;
+                            data.element.style.transform = `translateY(${data.currentY}px)`;
+                            data.initialized = true;
+                        }
+                    });
+                    requestAnimationFrame(animateScroll);
+                    return;
+                }
+
+                const deltaTime = (timestamp - lastTimestamp) / 1000; // Time elapsed in seconds
+                lastTimestamp = timestamp;
+
+                columnData.forEach(data => {
+                     // Skip update if height calculation failed (e.g., element not ready)
+                    if (!data.initialized || data.halfHeight <= 0) {
+                        // Attempt re-initialization on next frame
+                        data.initialized = false;
+                         lastTimestamp = 0; // Reset timestamp to trigger re-init
+                        return;
+                    }
+
+                    // Calculate new position
+                    data.currentY += data.speed * deltaTime;
+
+                    // Reset logic
+                    if (data.scrollUp) {
+                        // If scrolling up and top edge goes past -halfHeight, reset to 0
+                        if (data.currentY < -data.halfHeight) {
+                            // Add the difference to maintain smooth position
+                            data.currentY = data.currentY + data.halfHeight;
+                        }
+                    } else {
+                        // If scrolling down and top edge goes past 0 (from negative), reset to -halfHeight
+                         if (data.currentY > 0) {
+                           // Subtract the difference to maintain smooth position
+                           data.currentY = data.currentY - data.halfHeight;
+                        }
+                    }
+
+                    // Apply the transform
+                    data.element.style.transform = `translateY(${data.currentY}px)`;
+                });
+
+                requestAnimationFrame(animateScroll); // Loop the animation
+            }
+
+            // Start the animation loop
+            requestAnimationFrame(animateScroll);
+        });
+    </script>
+
+    {# === ADDED: Script for Loading Indicator === #}
+    <script>
+        document.getElementById('generate-form').addEventListener('submit', function() {
+            // Hide the result/placeholder area
+            document.getElementById('result-area').style.display = 'none';
+            // Show the loading indicator
+            document.getElementById('loading-indicator').style.display = 'flex'; // Use flex to center content
+        });
+    </script>
+</body>
+</html>
